@@ -29,15 +29,15 @@ public class Account
    } // end method validatePIN
    
    // returns available balance
-   public String getAvailableBalance()
+   public Euro getAvailableBalance()
    {
-      return availableBalance.stampa();
+      return availableBalance;
    } // end getAvailableBalance
 
    // returns the total balance
-   public String getTotalBalance()
+   public Euro getTotalBalance()
    {
-      return totalBalance.stampa();
+      return totalBalance;
    } // end method getTotalBalance
 
    // credits an amount to the account
