@@ -90,17 +90,17 @@ public class Withdrawal extends Transaction
 
    // display a menu of withdrawal amounts and the option to cancel;
    // return the chosen amount or 0 if the user chooses to cancel
-   private long displayMenuOfAmounts()
+   private double displayMenuOfAmounts()
    {
-      int userChoice = 0; // local variable to store return value
+   double userChoice = 0.0; // local variable to store return value
 
       Screen screen = getScreen(); // get screen reference
       
       // array of amounts to correspond to menu numbers
-      int amounts[] = { 0, 20, 40, 60, 100, 200 };
+      double amounts[] = { 0.0, 20.0, 40.0, 60.0, 100.0, 200.0 };
 
       // loop while no valid choice has been made
-      while ( userChoice == 0 )
+      while ( userChoice == 0.0 )
       {
          // display the menu
          screen.displayMessageLine( "\nWithdrawal Menu:" );
