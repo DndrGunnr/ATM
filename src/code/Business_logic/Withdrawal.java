@@ -8,7 +8,7 @@ import code.GUI.Screen;
 
 public class Withdrawal extends Transaction
 {
-   private Euro amount; // amount to withdraw
+   private Euro amount = new Euro(0.0); // amount to withdraw
    private Keypad keypad; // reference to keypad
    private CashDispenser cashDispenser; // reference to cash dispenser
 
@@ -42,7 +42,7 @@ public class Withdrawal extends Transaction
       do
       {
          // obtain a chosen withdrawal amount from the user 
-         amount.setValore(displayMenuOfAmounts());
+         amount.setValore( displayMenuOfAmounts());
          
          // check whether user chose a withdrawal amount or canceled
          if ( amount.getValore() != CANCELED )
@@ -52,10 +52,10 @@ public class Withdrawal extends Transaction
                bankDatabase.getAvailableBalance( getAccountNumber() );
       
             // check whether the user has enough money in the account 
-            if ( amount.getValore() <= availableBalance.getValore() )
+            if ( amount.minoreDi(availableBalance) )
             {   
                // check whether the cash dispenser has enough money
-               if ( cashDispenser.isSufficientCashAvailable( amount ) )
+               if ( cashDispenser.isSufficientCashAvailable( amount.getValore() ) )
                {
                   // update the account involved to reflect withdrawal
                   bankDatabase.debit( getAccountNumber(), amount );
@@ -92,7 +92,7 @@ public class Withdrawal extends Transaction
    // return the chosen amount or 0 if the user chooses to cancel
    private double displayMenuOfAmounts()
    {
-   double userChoice = 0.0; // local variable to store return value
+      double userChoice = 0.0; // local variable to store return value
 
       Screen screen = getScreen(); // get screen reference
       
@@ -122,7 +122,7 @@ public class Withdrawal extends Transaction
             case 3: // corresponding amount from amounts array
             case 4:
             case 5:
-               userChoice = amounts[ input ]; // save user's choice
+               userChoice= amounts[ input ]; // save user's choice
                break;       
             case CANCELED: // the user chose to cancel
                userChoice = CANCELED; // save user's choice

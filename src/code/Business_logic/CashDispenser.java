@@ -22,9 +22,9 @@ public class CashDispenser
    } // end method dispenseCash
 
    // indicates whether cash dispenser can dispense desired amount
-   public boolean isSufficientCashAvailable( Euro amount )
+   public boolean isSufficientCashAvailable( double amount )
    {
-      int billsRequired = (int)amount.getValore() / 20; // number of $20 bills required
+      int billsRequired =(int) amount / 20; // number of $20 bills required
 
       if ( count >= billsRequired  )
          return true; // enough bills available

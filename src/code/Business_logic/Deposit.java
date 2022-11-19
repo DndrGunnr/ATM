@@ -8,7 +8,7 @@ import code.GUI.Screen;
 
 public class Deposit extends Transaction
 {
-   private Euro amount; // amount to deposit
+   private Euro amount = new Euro(0.0); // amount to deposit
    private Keypad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
    private final static double CANCELED = 0.0; // constant for cancel option
