@@ -45,7 +45,7 @@ public class Withdrawal extends Transaction
          amount.setValore( displayMenuOfAmounts());
          
          // check whether user chose a withdrawal amount or canceled
-         if ( amount.getValore() != CANCELED )
+         if ( (amount.getValore()/100) != CANCELED )
          {
             // get available balance of account involved
             availableBalance = 
@@ -125,7 +125,7 @@ public class Withdrawal extends Transaction
                userChoice= amounts[ input ]; // save user's choice
                break;       
             case CANCELED: // the user chose to cancel
-               userChoice = CANCELED; // save user's choice
+               userChoice = (double)CANCELED; // save user's choice
                break;
             default: // the user did not enter a value from 1-6
                screen.displayMessageLine( 

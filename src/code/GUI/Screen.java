@@ -17,11 +17,11 @@ public class Screen
       System.out.println( message );   
    } // end method displayMessageLine
 
-   // display a dollar amount
-   public void displayDollarAmount( Euro amount )
+   // display a Euro amount
+   public void displayEuroAmount( Euro amount )
    {
       System.out.print(amount.stampa());   
-   } // end method displayDollarAmount 
+   } // end method displayEuroAmount 
 } // end class Screen
 
 

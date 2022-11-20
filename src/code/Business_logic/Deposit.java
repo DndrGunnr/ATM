@@ -40,7 +40,7 @@ public class Deposit extends Transaction
          // request deposit envelope containing specified amount
          screen.displayMessage( 
             "\nPlease insert a deposit envelope containing " );
-         screen.displayDollarAmount( amount );
+         screen.displayEuroAmount( amount );
          screen.displayMessageLine( "." );
 
          // receive deposit envelope
@@ -76,7 +76,7 @@ public class Deposit extends Transaction
 
       // display the prompt
       screen.displayMessage( "\nPlease enter a deposit amount in " + 
-         "CENTS (or 0.0 to cancel): " );
+         "CENTS (or 0 to cancel): " );
       int input = keypad.getInput(); // receive input of deposit amount
       
       // check whether the user canceled or entered a valid amount
@@ -84,7 +84,7 @@ public class Deposit extends Transaction
          return CANCELED;
       else
       {
-         return (double) input / 100; // return dollar amount 
+         return (double) input / 100; // return Euro amount 
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit
